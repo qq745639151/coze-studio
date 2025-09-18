@@ -1,0 +1,20 @@
+name: Sync Fork
+on:
+  schedule:
+    - cron: '0 */1 * * *'
+  workflow_dispatch:
+jobs:
+  SyncFork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync Fork
+        # You may pin to the exact commit or the version.
+        # uses: zwping/fork-sync@7ad9681518d04008cc8f056abed8fefc2902e96d
+        uses: zwping/fork-sync@v1.6.5
+        with:
+          # Branch to track
+          head: main
+          # Branch to keep updated
+          base: main
+          # Merge method to use
+          merge_method: rebase
